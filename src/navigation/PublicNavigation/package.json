@@ -1,0 +1,6 @@
+{
+  "name": "public-navigation",
+  "version": "1.0.0",
+  "main": "./PublicNavigation.js",
+  "license": "MIT"
+}
