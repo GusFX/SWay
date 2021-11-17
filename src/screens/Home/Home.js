@@ -6,8 +6,8 @@ const Home = () => {
     <Container>
       <MapView
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: -29.6914,
+          longitude: -53.8008,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
