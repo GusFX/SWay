@@ -1,11 +1,9 @@
 import React from 'react';
-import {View} from 'react-native';
-
-import MapView from 'react-native-maps';
+import {Container, MapView} from './styles';
 
 const Home = () => {
   return (
-    <View style={{width: '100%', height: '100%'}}>
+    <Container>
       <MapView
         initialRegion={{
           latitude: 37.78825,
@@ -13,9 +11,8 @@ const Home = () => {
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-        style={{flex: 1}}
       />
-    </View>
+    </Container>
   );
 };
 
