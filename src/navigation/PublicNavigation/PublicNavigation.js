@@ -14,7 +14,7 @@ const PublicNavigation = () => {
         component={Home}
         options={{
           ...TransitionPresets.SlideFromRightIOS,
-          headerShown: true,
+          headerShown: false,
         }}
       />
     </Stack.Navigator>
