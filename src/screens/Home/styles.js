@@ -19,7 +19,7 @@ export const InputText = styled(InputTextTemplate)``;
 
 export const InputView = styled.View`
   position: absolute;
-  top: ${windowHeight * 0.2}px;
+  top: ${windowHeight * 0.1}px;
   left: 0;
   right: 0;
   bottom: 0;

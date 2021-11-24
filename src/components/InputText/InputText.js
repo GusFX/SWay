@@ -4,7 +4,7 @@ import {Container, TextInput} from './styles';
 const InputText = ({label}) => {
   return (
     <Container>
-      <TextInput mode="flat" label={label} onChangeText={() => {}} />
+      <TextInput mode="outlined" label={label} onChangeText={() => {}} />
     </Container>
   );
 };
