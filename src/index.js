@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import Routes from './navigation';
 import {Provider as PaperProvider, DefaultTheme} from 'react-native-paper';
 import {Colors} from './common/colors/Colors';
+import 'react-native-gesture-handler';
 
 export default function Index() {
   const theme = {
