@@ -14,6 +14,9 @@ export default function Index() {
       primary: Colors.DEEP_BLUE,
       background: Colors.WHITE,
       surface: Colors.WHITE,
+      placeholder: Colors.GREY,
+      text: Colors.GREY,
+      error: Colors.RED,
     },
   };
   return (
