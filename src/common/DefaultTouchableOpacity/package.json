@@ -1,0 +1,5 @@
+{
+  "name": "default-touchable-opacity",
+  "version": "1.0.0",
+  "main": "./DefaultTouchableOpacity.js"
+}
