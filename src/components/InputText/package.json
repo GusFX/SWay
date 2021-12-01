@@ -1,0 +1,6 @@
+{
+  "name": "input-text",
+  "version": "1.0.0",
+  "main": "./InputText.js",
+  "license": "MIT"
+}

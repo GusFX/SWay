@@ -1,0 +1,5 @@
+{
+  "name": "travel-history",
+  "private": true,
+  "main": "./TravelHistory.js"
+}

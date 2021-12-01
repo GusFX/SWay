@@ -1,0 +1,13 @@
+export const Colors = {
+  ORANGE: '#F47920',
+  RED: '#FF4444',
+  LIGHT_RED: '#FFA8A8',
+  LIGHT_GREY: '#F4F4F4',
+  GREY: '#82828C',
+  DARK_GREY: '#686872',
+  WHITE: '#FFFFFF',
+  BLACK: '#000000',
+  SPINNER_BACKGROUND: '#30303055',
+  YELLOW: '#FFF844',
+  DEEP_BLUE: '#1152FD',
+};
