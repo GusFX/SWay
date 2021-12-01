@@ -3,7 +3,7 @@ import React from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {Home, TravelHistory} from '../../screens';
+import {Home, TravelHistory, UserRegistration} from '../../screens';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -16,8 +16,16 @@ const DrawerNavigator = () => (
 
 const PublicNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator initialRouteName="UserRegistration">
       <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+      <Stack.Screen
+        name="UserRegistration"
+        component={UserRegistration}
+        options={{
+          ...TransitionPresets.SlideFromRightIOS,
+          headerShown: true,
+        }}
+      />
       <Stack.Screen
         name="Home"
         component={Home}
