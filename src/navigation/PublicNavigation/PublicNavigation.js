@@ -3,7 +3,12 @@ import React from 'react';
 import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-import {Home, TravelHistory, UserRegistration} from '../../screens';
+import {
+  Home,
+  OccurrenceRegistration,
+  TravelHistory,
+  UserRegistration,
+} from '../../screens';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -32,6 +37,14 @@ const PublicNavigation = () => {
         options={{
           ...TransitionPresets.SlideFromRightIOS,
           headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="OccurrenceRegistration"
+        component={OccurrenceRegistration}
+        options={{
+          ...TransitionPresets.SlideFromRightIOS,
+          headerShown: true,
         }}
       />
     </Stack.Navigator>
