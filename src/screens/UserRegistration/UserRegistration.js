@@ -2,9 +2,11 @@ import React, {useRef} from 'react';
 import {Form} from '@unform/mobile';
 import {Button, FormView, InputText} from './styles';
 import * as Yup from 'yup';
+import {useNavigation} from '@react-navigation/core';
 
 const UserRegistration = () => {
   const formRef = useRef();
+  const navigation = useNavigation();
 
   const handleSubmit = async data => {
     try {
@@ -23,6 +25,7 @@ const UserRegistration = () => {
       });
       // submitLogin(data);
       console.log('Dados Validados!!!!');
+      navigation.navigate('Home');
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
