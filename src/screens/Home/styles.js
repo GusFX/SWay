@@ -3,11 +3,16 @@ import {StyleSheet} from 'react-native';
 // import {Colors} from '../../common/colors/Colors';
 import {Dimensions} from 'react-native';
 
-import {InputText as InputTextTemplate} from '../../components';
+import {
+  InputText as InputTextTemplate,
+  Button as ButtonTemplate,
+} from '../../components';
 import {default as MapViewTemplate} from 'react-native-maps';
 
 // const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+
+export const Button = styled(ButtonTemplate)``;
 
 export const Container = styled.View`
   width: 100%;
@@ -33,4 +38,14 @@ export const MapView = styled(MapViewTemplate).attrs({
 })`
   flex: 1;
   position: relative;
+`;
+
+export const OcurrenceView = styled.View`
+  position: absolute;
+  top: ${windowHeight * 0.85}px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-left: 120px;
+  padding-right: 120px;
 `;

@@ -1,5 +1,5 @@
 import React from 'react';
-import {InputText, InputView} from './styles';
+import {Button, OcurrenceView} from './styles';
 import {Container, MapView} from './styles';
 
 const Home = () => {
@@ -15,9 +15,14 @@ const Home = () => {
           }}
         />
       </Container>
-      <InputView>
-        <InputText label="Teste" />
-      </InputView>
+      <OcurrenceView>
+        <Button
+          text="REGISTRAR OCORRENCIA"
+          backgroundColor="RED"
+          type="filled"
+          onPressCallback={() => {}}
+        />
+      </OcurrenceView>
     </>
   );
 };
