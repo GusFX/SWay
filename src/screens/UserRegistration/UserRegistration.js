@@ -14,7 +14,9 @@ const UserRegistration = () => {
         cpf: Yup.string().length(11).required(),
         email: Yup.string().email().required(),
         senha: Yup.string().required(),
-        confirmacao: Yup.string().required(),
+        confirmacao: Yup.string()
+          .required()
+          .equals([Yup.ref('senha')]),
       });
       await schema.validate(data, {
         abortEarly: false,
