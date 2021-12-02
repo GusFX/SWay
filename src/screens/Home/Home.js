@@ -1,8 +1,10 @@
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {Button, OcurrenceView} from './styles';
 import {Container, MapView} from './styles';
 
 const Home = () => {
+  const navigation = useNavigation();
   return (
     <>
       <Container>
@@ -20,7 +22,7 @@ const Home = () => {
           text="REGISTRAR OCORRENCIA"
           backgroundColor="RED"
           type="filled"
-          onPressCallback={() => {}}
+          onPressCallback={() => navigation.navigate('OccurrenceRegistration')}
         />
       </OcurrenceView>
     </>
