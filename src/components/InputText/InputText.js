@@ -5,6 +5,13 @@ import {Container, TextInput} from './styles';
 const InputText = ({label, name}) => {
   const inputRef = useRef();
   const {error, registerField} = useField(name);
+
+  const _handleChangeText = React.useCallback(text => {
+    if (inputRef.current) {
+      inputRef.current.value = text;
+    }
+  }, []);
+
   useEffect(() => {
     registerField({
       name,
@@ -46,7 +53,10 @@ const InputText = ({label, name}) => {
         mode="outlined"
         label={label}
         error={Boolean(error)}
-        onChangeText={() => {}}
+        ref={inputRef}
+        onChangeText={text => {
+          _handleChangeText(text);
+        }}
       />
     </Container>
   );
