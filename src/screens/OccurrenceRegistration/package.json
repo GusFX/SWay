@@ -1,0 +1,5 @@
+{
+  "name": "occurrence-registration",
+  "private": true,
+  "main": "./OccurrenceRegistration.js"
+}
