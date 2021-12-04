@@ -9,7 +9,6 @@ export default function Index() {
   const theme = {
     ...DefaultTheme,
     dark: false,
-    roundness: 30,
     colors: {
       ...DefaultTheme.Colors,
       primary: Colors.DEEP_BLUE,

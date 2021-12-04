@@ -10,5 +10,6 @@ export const Container = styled.View`
 `;
 
 export const TextInput = styled(TextInputTemplate)`
+  background-color: ${Colors.WHITE};
   flex: 1;
 `;

@@ -1,6 +1,7 @@
 import React, {useEffect, useRef} from 'react';
 import {useField} from '@unform/core';
 import {Container, TextInput} from './styles';
+import {Colors} from '../../common/colors/Colors';
 
 const InputText = ({label, name, secureEntry, maxLength}, rest) => {
   const inputRef = useRef();
@@ -51,12 +52,13 @@ const InputText = ({label, name, secureEntry, maxLength}, rest) => {
     <Container>
       <TextInput
         {...rest}
-        mode="outlined"
+        mode="flat"
         label={label}
         secureEntry={secureEntry}
         maxLength={maxLength}
         error={Boolean(error)}
         ref={inputRef}
+        underlineColor={Colors.GREY}
         onChangeText={text => {
           _handleChangeText(text);
         }}
