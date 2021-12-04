@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Button, OcurrenceView} from './styles';
+import {Button, InputView, OcurrenceView} from './styles';
 import {Container, MapView} from './styles';
 
 const Home = () => {
@@ -17,6 +17,14 @@ const Home = () => {
           }}
         />
       </Container>
+      <InputView>
+        <Button
+          text="Para onde vamos?"
+          backgroundColor="BLACK"
+          type="filled"
+          onPressCallback={() => {}}
+        />
+      </InputView>
       <OcurrenceView>
         <Button
           text="REGISTRAR OCORRENCIA"
