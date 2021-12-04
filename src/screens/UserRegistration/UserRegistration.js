@@ -45,7 +45,7 @@ const UserRegistration = () => {
       <FormView>
         <Form onSubmit={data => handleSubmit(data)} ref={formRef}>
           <InputText label="Nome" name="nome" />
-          <InputText label="CPF" name="cpf" />
+          <InputText label="CPF" name="cpf" maxLength={11} />
           <InputText label="E-Mail" name="email" />
           <InputText label="Senha" name="senha" />
           <InputText label="Confirme a senha" name="confirmacao" />

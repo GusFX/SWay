@@ -2,7 +2,7 @@ import React, {useEffect, useRef} from 'react';
 import {useField} from '@unform/core';
 import {Container, TextInput} from './styles';
 
-const InputText = ({label, name, secureEntry}, rest) => {
+const InputText = ({label, name, secureEntry, maxLength}, rest) => {
   const inputRef = useRef();
   const {error, registerField} = useField(name);
 
@@ -54,6 +54,7 @@ const InputText = ({label, name, secureEntry}, rest) => {
         mode="outlined"
         label={label}
         secureEntry={secureEntry}
+        maxLength={maxLength}
         error={Boolean(error)}
         ref={inputRef}
         onChangeText={text => {
