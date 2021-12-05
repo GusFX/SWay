@@ -3,10 +3,26 @@ import {Form} from '@unform/mobile';
 import {Button, FormView, InputText} from './styles';
 import * as Yup from 'yup';
 import {useNavigation} from '@react-navigation/core';
+import axios from 'axios';
 
 const UserRegistration = () => {
   const formRef = useRef();
   const navigation = useNavigation();
+
+  const submitRegistration = async userInfo => {
+    const config = {
+      name: userInfo.nome,
+      email: userInfo.email,
+      password: userInfo.senha,
+      phone: userInfo.phone,
+      cpf: userInfo.cpf,
+    };
+    const response = await axios.post(
+      'https://s-way.herokuapp.com/api/user',
+      config,
+    );
+    console.log('resposta da api: ', response);
+  };
 
   const handleSubmit = async data => {
     try {
@@ -15,6 +31,7 @@ const UserRegistration = () => {
         nome: Yup.string().required(),
         cpf: Yup.string().length(11).required(),
         email: Yup.string().email().required(),
+        phone: Yup.string().length(11).required(),
         senha: Yup.string().required(),
         confirmacao: Yup.string()
           .required()
@@ -23,8 +40,8 @@ const UserRegistration = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
-      // submitLogin(data);
       console.log('Dados Validados!!!!');
+      await submitRegistration(data);
       navigation.navigate('Home');
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -47,6 +64,7 @@ const UserRegistration = () => {
           <InputText label="Nome" name="nome" />
           <InputText label="CPF" name="cpf" maxLength={11} />
           <InputText label="E-Mail" name="email" />
+          <InputText label="Telefone" name="phone" />
           <InputText label="Senha" name="senha" />
           <InputText label="Confirme a senha" name="confirmacao" />
         </Form>
