@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import {Form} from '@unform/mobile';
 import {Button, InputText, FormView} from './styles';
 import {useNavigation} from '@react-navigation/core';
+import {Select} from '../../components';
 
 const OccurrenceRegistration = () => {
   const formRef = useRef();
@@ -42,8 +43,14 @@ const OccurrenceRegistration = () => {
   return (
     <FormView>
       <Form onSubmit={data => handleSubmit(data)} ref={formRef}>
-        <InputText label="Gravidade da Ocorrência" name="gravidade" />
-        <InputText label="Qual foi o acontecimento" name="acontecimento" />
+        {/* <InputText label="Qual foi o acontecimento" name="acontecimento" /> */}
+        <Select
+          label="Qual foi o acontecimento"
+          name="acontecimento"
+          mode="flat"
+          options={[{value: '', label: ''}]}
+          onSelectionChange={() => {}}
+        />
         <InputText label="Data" name="data" />
         <InputText label="Hora" name="hora" />
         <InputText label="Localização" name="local" />
