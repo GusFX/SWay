@@ -1,8 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {DropDownView} from './styles';
-import {TSelect} from './@types';
 import {useField} from '@unform/core';
 import {default as DropDown} from 'react-native-paper-dropdown';
+import {Colors} from '../../common/colors/Colors';
 
 const Select = props => {
   const {name} = props;
@@ -54,6 +54,10 @@ const Select = props => {
         inputProps={{
           disabled: props.disabled,
           error: Boolean(error),
+          style: {
+            backgroundColor: Colors.WHITE,
+          },
+          mode: 'flat',
         }}
       />
     </DropDownView>
