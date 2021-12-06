@@ -38,7 +38,7 @@ const Home = () => {
           text="OCORRENCIAS REGISTRADAS"
           backgroundColor="DEEP_BLUE"
           type="filled"
-          onPressCallback={() => {}}
+          onPressCallback={() => navigation.navigate('OccurrenceList')}
         />
       </ListView>
     </>
