@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {Button, InputView, OcurrenceView} from './styles';
+import {Button, InputView, ListView, OcurrenceView} from './styles';
 import {Container, MapView} from './styles';
 
 const Home = () => {
@@ -33,6 +33,14 @@ const Home = () => {
           onPressCallback={() => navigation.navigate('OccurrenceRegistration')}
         />
       </OcurrenceView>
+      <ListView>
+        <Button
+          text="OCORRENCIAS REGISTRADAS"
+          backgroundColor="DEEP_BLUE"
+          type="filled"
+          onPressCallback={() => {}}
+        />
+      </ListView>
     </>
   );
 };

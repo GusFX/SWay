@@ -11,6 +11,7 @@ import {default as MapViewTemplate} from 'react-native-maps';
 
 // const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 export const Button = styled(ButtonTemplate)``;
 
@@ -44,8 +45,14 @@ export const OcurrenceView = styled.View`
   position: absolute;
   top: ${windowHeight * 0.85}px;
   left: 0;
+  right: ${windowWidth * 0.55}px;
+  bottom: 0;
+`;
+
+export const ListView = styled.View`
+  position: absolute;
+  top: ${windowHeight * 0.85}px;
+  left: ${windowWidth * 0.55}px;
   right: 0;
   bottom: 0;
-  padding-left: 120px;
-  padding-right: 120px;
 `;
