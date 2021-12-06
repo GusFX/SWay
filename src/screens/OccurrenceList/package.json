@@ -1,0 +1,5 @@
+{
+  "name": "occurrence-list",
+  "private": true,
+  "main": "./OccurrenceList.js"
+}
