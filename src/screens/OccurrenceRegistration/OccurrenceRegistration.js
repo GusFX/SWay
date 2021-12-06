@@ -67,7 +67,12 @@ const OccurrenceRegistration = () => {
         <FormTitle>Data e Hora</FormTitle>
         <DatePicker date={date} onDataChange={setDate} mode="datetime" />
         <InputText label="Localização" name="local" />
-        <InputText label="Detalhes" name="detalhes" />
+        <InputText
+          label="Detalhes"
+          name="detalhes"
+          multiline
+          numberofLines={10}
+        />
       </Form>
       <Button
         text="Registrar"

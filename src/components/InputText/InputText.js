@@ -3,7 +3,10 @@ import {useField} from '@unform/core';
 import {Container, TextInput} from './styles';
 import {Colors} from '../../common/colors/Colors';
 
-const InputText = ({label, name, secureEntry, maxLength}, rest) => {
+const InputText = (
+  {label, name, secureEntry, maxLength, multiline, numberOfLines},
+  rest,
+) => {
   const inputRef = useRef();
   const {error, registerField} = useField(name);
 
@@ -59,6 +62,8 @@ const InputText = ({label, name, secureEntry, maxLength}, rest) => {
         error={Boolean(error)}
         ref={inputRef}
         underlineColor={Colors.GREY}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
         onChangeText={text => {
           _handleChangeText(text);
         }}
