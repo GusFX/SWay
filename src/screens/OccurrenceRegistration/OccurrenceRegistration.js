@@ -40,6 +40,18 @@ const OccurrenceRegistration = () => {
     }
   };
 
+  const getSelectOptions = () => [
+    {value: 'theft', label: 'Roubo'},
+    {value: 'burglary', label: 'Arrombamento'},
+    {value: 'robbery', label: 'Assalto'},
+    {value: 'rape', label: 'Estupro'},
+    {value: 'harassment', label: 'Assédio'},
+    {value: 'strange_behaviour', label: 'Comportamento Estranho'},
+    {value: 'drug_trafficking', label: 'Tráfico de drogas'},
+    {value: 'faction_zone', label: 'Zona de facção'},
+    {value: 'other', label: 'Outro'},
+  ];
+
   return (
     <FormView>
       <Form onSubmit={data => handleSubmit(data)} ref={formRef}>
@@ -48,7 +60,7 @@ const OccurrenceRegistration = () => {
           label="Qual foi o acontecimento"
           name="acontecimento"
           mode="flat"
-          options={[{value: '', label: ''}]}
+          options={getSelectOptions()}
           onSelectionChange={() => {}}
         />
         <InputText label="Data" name="data" />
