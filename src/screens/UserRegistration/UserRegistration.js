@@ -73,8 +73,7 @@ const UserRegistration = () => {
           backgroundColor="DEEP_BLUE"
           type="filled"
           onPressCallback={() => {
-            // formRef.current?.submitForm()
-            navigation.navigate('Home');
+            formRef.current?.submitForm();
           }}
         />
       </FormView>
