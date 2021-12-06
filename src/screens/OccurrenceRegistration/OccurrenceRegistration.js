@@ -1,14 +1,16 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import * as Yup from 'yup';
 import {Form} from '@unform/mobile';
-import {Button, InputText, FormView} from './styles';
+import {Button, InputText, FormView, FormTitle} from './styles';
 import {useNavigation} from '@react-navigation/core';
 import {Select} from '../../components';
+import DatePicker from 'react-native-date-picker';
 
 const OccurrenceRegistration = () => {
   const formRef = useRef();
   const navigation = useNavigation();
 
+  const [date, setDate] = useState(new Date());
   const handleSubmit = async data => {
     try {
       formRef.current.setErrors({});
@@ -55,7 +57,6 @@ const OccurrenceRegistration = () => {
   return (
     <FormView>
       <Form onSubmit={data => handleSubmit(data)} ref={formRef}>
-        {/* <InputText label="Qual foi o acontecimento" name="acontecimento" /> */}
         <Select
           label="Qual foi o acontecimento"
           name="acontecimento"
@@ -63,8 +64,8 @@ const OccurrenceRegistration = () => {
           options={getSelectOptions()}
           onSelectionChange={() => {}}
         />
-        <InputText label="Data" name="data" />
-        <InputText label="Hora" name="hora" />
+        <FormTitle>Data e Hora</FormTitle>
+        <DatePicker date={date} onDataChange={setDate} mode="datetime" />
         <InputText label="Localização" name="local" />
         <InputText label="Detalhes" name="detalhes" />
       </Form>
