@@ -5,12 +5,40 @@ import {Button, InputText, FormView, FormTitle} from './styles';
 import {useNavigation} from '@react-navigation/core';
 import {Select} from '../../components';
 import DatePicker from 'react-native-date-picker';
+import axios from 'axios';
 
 const OccurrenceRegistration = () => {
   const formRef = useRef();
   const navigation = useNavigation();
 
   const [date, setDate] = useState(new Date());
+
+  const formatDate = dateTime => {
+    return `${dateTime.getFullYear()}-${dateTime.getMonth()}-${dateTime.getDate()} ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`;
+  };
+
+  const registerOccurrence = async occurrenceData => {
+    formatDate(date);
+    const config = {
+      lat: 11.944121,
+      long: 12.21331,
+      neighbourhood: 'Rosas',
+      street: occurrenceData.local,
+      postal_code: 95000000,
+      date_hour: formatDate(date),
+      description: occurrenceData.detalhes,
+      type: occurrenceData.acontecimento,
+      user_id: 1,
+    };
+
+    console.log(config);
+    const {data: response} = await axios.post(
+      'https://s-way.herokuapp.com/api/occurrence',
+      config,
+    );
+    console.log('resposta da api: ', response);
+  };
+
   const handleSubmit = async data => {
     try {
       formRef.current.setErrors({});
@@ -22,7 +50,7 @@ const OccurrenceRegistration = () => {
       await schema.validate(data, {
         abortEarly: false,
       });
-      // submitLogin(data);
+      await registerOccurrence(data);
       console.log('Dados Validados!!!!');
       navigation.navigate('Home');
     } catch (error) {
