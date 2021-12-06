@@ -15,12 +15,9 @@ const OccurrenceRegistration = () => {
     try {
       formRef.current.setErrors({});
       const schema = Yup.object().shape({
-        gravidade: Yup.string().required(),
-        acontecimento: Yup.string().length(11).required(),
-        data: Yup.string().required(),
-        hora: Yup.string().required(),
+        acontecimento: Yup.string().required(),
         local: Yup.string().required(),
-        detalhes: Yup.string(),
+        detalhes: Yup.string().required(),
       });
       await schema.validate(data, {
         abortEarly: false,
