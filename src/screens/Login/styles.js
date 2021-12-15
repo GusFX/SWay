@@ -25,3 +25,9 @@ export const TitleView = styled.View`
   justify-content: center;
   margin-top: 20%;
 `;
+
+export const TouchableText = styled(Text)`
+  margin-top: 30px;
+  color: ${Colors.DEEP_BLUE};
+  align-self: center;
+`;

@@ -1,5 +1,12 @@
 import React, {useRef} from 'react';
-import {Button, FormView, InputText, Title, TitleView} from './styles';
+import {
+  Button,
+  FormView,
+  InputText,
+  Title,
+  TitleView,
+  TouchableText,
+} from './styles';
 import {Form} from '@unform/mobile';
 
 const Login = () => {
@@ -22,6 +29,7 @@ const Login = () => {
             onPressCallback={() => {}}
           />
         </Form>
+        <TouchableText>Não é cadastrado? Registre-se aqui!</TouchableText>
       </FormView>
     </>
   );
