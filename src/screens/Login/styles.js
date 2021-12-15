@@ -1,6 +1,14 @@
 import styled from 'styled-components';
-import {Text} from 'react-native-paper';
 import {Colors} from '../../common/colors/Colors';
+import {Text} from 'react-native-paper';
+import {InputText as InputTemplate} from '../../components';
+
+export const FormView = styled.View`
+  padding: 20px 40px;
+  justify-content: center;
+`;
+
+export const InputText = styled(InputTemplate)``;
 
 export const Title = styled(Text)`
   font-size: 40px;
@@ -9,7 +17,6 @@ export const Title = styled(Text)`
 
 export const TitleView = styled.View`
   flex-direction: row;
-  flex: 1;
   justify-content: center;
   margin-top: 20%;
 `;
