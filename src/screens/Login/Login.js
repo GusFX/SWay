@@ -8,9 +8,15 @@ import {
   TouchableText,
 } from './styles';
 import {Form} from '@unform/mobile';
+import {useNavigation} from '@react-navigation/core';
 
 const Login = () => {
   const formRef = useRef();
+  const navigation = useNavigation();
+
+  const handleNavigate = route => {
+    navigation.navigate(route);
+  };
 
   return (
     <>
@@ -29,7 +35,9 @@ const Login = () => {
             onPressCallback={() => {}}
           />
         </Form>
-        <TouchableText>Não é cadastrado? Registre-se aqui!</TouchableText>
+        <TouchableText onPress={() => handleNavigate('UserRegistration')}>
+          Não é cadastrado? Registre-se aqui!
+        </TouchableText>
       </FormView>
     </>
   );
