@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 import {Colors} from '../../common/colors/Colors';
 import {Text} from 'react-native-paper';
-import {InputText as InputTemplate} from '../../components';
+import {
+  Button as ButtonTemplate,
+  InputText as InputTemplate,
+} from '../../components';
+
+export const Button = styled(ButtonTemplate)``;
 
 export const FormView = styled.View`
   padding: 20px 40px;

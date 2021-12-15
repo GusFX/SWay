@@ -1,5 +1,5 @@
 import React, {useRef} from 'react';
-import {FormView, InputText, Title, TitleView} from './styles';
+import {Button, FormView, InputText, Title, TitleView} from './styles';
 import {Form} from '@unform/mobile';
 
 const Login = () => {
@@ -15,6 +15,12 @@ const Login = () => {
         <Form onSubmit={() => {}} ref={formRef}>
           <InputText label="E-Mail" name="email" />
           <InputText label="Senha" name="senha" />
+          <Button
+            text="Entrar"
+            backgroundColor="DEEP_BLUE"
+            type="filled"
+            onPressCallback={() => {}}
+          />
         </Form>
       </FormView>
     </>
