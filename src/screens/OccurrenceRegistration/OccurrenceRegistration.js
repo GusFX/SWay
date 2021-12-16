@@ -1,7 +1,15 @@
 import React, {useRef, useState} from 'react';
 import * as Yup from 'yup';
 import {Form} from '@unform/mobile';
-import {Button, InputText, FormView, FormTitle} from './styles';
+import {
+  Button,
+  InputText,
+  FormView,
+  FormTitle,
+  Modal,
+  ModalText,
+  ModalView,
+} from './styles';
 import {useNavigation} from '@react-navigation/core';
 import {Select} from '../../components';
 import DatePicker from 'react-native-date-picker';
@@ -12,6 +20,7 @@ const OccurrenceRegistration = () => {
   const navigation = useNavigation();
 
   const [date, setDate] = useState(new Date());
+  const [modalSuccess, setModalSuccess] = useState(false);
 
   const formatDate = dateTime => {
     return `${dateTime.getFullYear()}-${dateTime.getMonth()}-${dateTime.getDate()} ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`;
@@ -52,7 +61,7 @@ const OccurrenceRegistration = () => {
       });
       await registerOccurrence(data);
       console.log('Dados Validados!!!!');
-      navigation.navigate('Home');
+      setModalSuccess(true);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
@@ -81,6 +90,22 @@ const OccurrenceRegistration = () => {
 
   return (
     <FormView>
+      <Modal
+        enabled={modalSuccess}
+        onBackdropPress={() => setModalSuccess(false)}>
+        <ModalView>
+          <ModalText>Ocorrencia registrada com sucesso</ModalText>
+          <Button
+            text="Continuar"
+            backgroundColor="DEEP_BLUE"
+            type="filled"
+            onPressCallback={() => {
+              setModalSuccess(false);
+              navigation.navigate('Home');
+            }}
+          />
+        </ModalView>
+      </Modal>
       <Form onSubmit={data => handleSubmit(data)} ref={formRef}>
         <Select
           label="Qual foi o acontecimento"
