@@ -28,6 +28,7 @@ const Login = () => {
       });
 
       await schema.validate(data, {abortEarly: false});
+      handleNavigate('Home');
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
