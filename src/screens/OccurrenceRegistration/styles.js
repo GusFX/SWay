@@ -21,7 +21,7 @@ export const FormTitle = styled(Text)`
 export const Modal = styled(ModalTemplate)``;
 
 export const ModalText = styled(Text)`
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 export const ModalView = styled.View`
