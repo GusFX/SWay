@@ -5,6 +5,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {
   Home,
+  Login,
   OccurrenceList,
   OccurrenceRegistration,
   TravelHistory,
@@ -22,8 +23,16 @@ const DrawerNavigator = () => (
 
 const PublicNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="UserRegistration">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+      <Stack.Screen
+        name="Login"
+        component={Login}
+        options={{
+          ...TransitionPresets.SlideFromRightIOS,
+          headerShown: true,
+        }}
+      />
       <Stack.Screen
         name="UserRegistration"
         component={UserRegistration}
