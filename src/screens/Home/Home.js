@@ -129,8 +129,9 @@ const Home = () => {
             </MapView.Callout>
           </MapView.Marker>
           {occurrencesToRender.length > 0 &&
-            occurrencesToRender.map(occ => (
+            occurrencesToRender.map((occ, index) => (
               <MapView.Circle
+                key={index}
                 center={occ}
                 radius={150}
                 fillColor={Colors.LIGHT_RED}
