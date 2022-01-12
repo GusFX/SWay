@@ -58,7 +58,7 @@ const Home = () => {
         setIsLoading(false);
       },
       err => {
-        console.error('erro ao buscar localizacao: ', err);
+        console.log('erro ao buscar localizacao: ', err);
         setOrigin({
           latitude: -29.6914,
           longitude: -53.8008,
@@ -84,7 +84,17 @@ const Home = () => {
   );
 
   const generatePoints = useCallback(boundary => {
-    console.log(boundary);
+    const {max, min} = boundary;
+    const points = [];
+    let randLat;
+    let randLong;
+    for (let i = 0; i < 10; i++) {
+      randLat = Math.random() * (max.latitude - min.latitude) + min.latitude;
+      randLong =
+        Math.random() * (max.longitude - min.longitude) + min.longitude;
+      points.push({latitude: randLat, longitude: randLong});
+    }
+    return points;
   }, []);
 
   const mountBoundingBox = useCallback(() => {
