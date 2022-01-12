@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {Button, InputView, ListView, OcurrenceView, MarkerText} from './styles';
 import {Container, MapView} from './styles';
+import {Colors} from '../../common/colors/Colors';
 
 // import {PermissionsAndroid} from 'react-native';
 
@@ -28,11 +29,12 @@ const Home = () => {
               <MarkerText>Origem</MarkerText>
             </MapView.Callout>
           </MapView.Marker>
-          <MapView.Marker coordinate={destination}>
-            <MapView.Callout>
-              <MarkerText>Destino</MarkerText>
-            </MapView.Callout>
-          </MapView.Marker>
+          <MapView.Circle
+            center={destination}
+            radius={150}
+            fillColor={Colors.LIGHT_RED}
+            strokeColor={Colors.RED}
+          />
         </MapView>
       </Container>
       <InputView>
