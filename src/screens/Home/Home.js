@@ -16,8 +16,8 @@ const Home = () => {
     latitude: -29.6914,
     longitude: -53.8008,
   });
-  const [destination] = useState({latitude: -29.689294, longitude: -53.798107});
-  const [, setOccurrencesToRender] = useState([]);
+  // const [destination] = useState({latitude: -29.689294, longitude: -53.798107});
+  const [occurrencesToRender, setOccurrencesToRender] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const requestLocationPermission = useCallback(async () => {
@@ -70,14 +70,14 @@ const Home = () => {
   }, []);
 
   const getBoundary = useCallback(
-    () => ({
+    dist => ({
       max: {
-        latitude: origin.latitude + 0.001,
-        longitude: origin.longitude + 0.001,
+        latitude: origin.latitude + dist,
+        longitude: origin.longitude + dist,
       },
       min: {
-        latitude: origin.latitude - 0.001,
-        longitude: origin.longitude - 0.001,
+        latitude: origin.latitude - dist,
+        longitude: origin.longitude - dist,
       },
     }),
     [origin],
@@ -99,7 +99,7 @@ const Home = () => {
 
   const mountBoundingBox = useCallback(() => {
     if (!isLoading) {
-      const boundary = getBoundary();
+      const boundary = getBoundary(0.01);
       const points = generatePoints(boundary);
       setOccurrencesToRender(points);
     }
@@ -128,12 +128,15 @@ const Home = () => {
               <MarkerText>Origem</MarkerText>
             </MapView.Callout>
           </MapView.Marker>
-          <MapView.Circle
-            center={destination}
-            radius={150}
-            fillColor={Colors.LIGHT_RED}
-            strokeColor={Colors.RED}
-          />
+          {occurrencesToRender.length > 0 &&
+            occurrencesToRender.map(occ => (
+              <MapView.Circle
+                center={occ}
+                radius={150}
+                fillColor={Colors.LIGHT_RED}
+                strokeColor={Colors.RED}
+              />
+            ))}
         </MapView>
       </Container>
       <InputView>
