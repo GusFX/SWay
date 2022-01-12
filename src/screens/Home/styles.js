@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
-// import {Colors} from '../../common/colors/Colors';
+import {Colors} from '../../common/colors/Colors';
 import {Dimensions} from 'react-native';
 
 import {
@@ -55,4 +55,8 @@ export const ListView = styled.View`
   left: ${windowWidth * 0.55}px;
   right: 0;
   bottom: 0;
+`;
+
+export const MarkerText = styled.Text`
+  color: ${Colors.BLACK};
 `;
