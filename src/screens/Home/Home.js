@@ -17,6 +17,8 @@ const Home = () => {
     longitude: -53.8008,
   });
   const [destination] = useState({latitude: -29.689294, longitude: -53.798107});
+  const [, setOccurrencesToRender] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const requestLocationPermission = useCallback(async () => {
     try {
@@ -43,6 +45,7 @@ const Home = () => {
   }, [getLocation]);
 
   const getLocation = useCallback(async () => {
+    setIsLoading(true);
     Geolocation.getCurrentPosition(
       position => {
         const newOrigin = {
@@ -52,6 +55,7 @@ const Home = () => {
 
         console.log(newOrigin);
         setOrigin(newOrigin);
+        setIsLoading(false);
       },
       err => {
         console.error('erro ao buscar localizacao: ', err);
@@ -59,14 +63,45 @@ const Home = () => {
           latitude: -29.6914,
           longitude: -53.8008,
         });
+        setIsLoading(false);
       },
       {enableHighAccuracy: true, timeout: 5000, maximumAge: 1000},
     );
   }, []);
 
+  const getBoundary = useCallback(
+    () => ({
+      max: {
+        latitude: origin.latitude + 0.001,
+        longitude: origin.longitude + 0.001,
+      },
+      min: {
+        latitude: origin.latitude - 0.001,
+        longitude: origin.longitude - 0.001,
+      },
+    }),
+    [origin],
+  );
+
+  const generatePoints = useCallback(boundary => {
+    console.log(boundary);
+  }, []);
+
+  const mountBoundingBox = useCallback(() => {
+    if (!isLoading) {
+      const boundary = getBoundary();
+      const points = generatePoints(boundary);
+      setOccurrencesToRender(points);
+    }
+  }, [isLoading, getBoundary, generatePoints]);
+
   useLayoutEffect(() => {
     requestLocationPermission();
   }, [requestLocationPermission]);
+
+  useEffect(() => {
+    mountBoundingBox();
+  }, [origin, mountBoundingBox]);
 
   return (
     <>
