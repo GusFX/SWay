@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useLayoutEffect} from 'react';
+import React, {useState, useCallback, useLayoutEffect, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {Button, InputView, ListView, OcurrenceView, MarkerText} from './styles';
 import {Container, MapView} from './styles';
@@ -32,7 +32,10 @@ const Home = () => {
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         getLocation();
       } else {
-        return false;
+        setOrigin({
+          latitude: -29.6914,
+          longitude: -53.8008,
+        });
       }
     } catch (err) {
       console.warn('erro ao solicitar permissao: ', err);
@@ -52,6 +55,10 @@ const Home = () => {
       },
       err => {
         console.error('erro ao buscar localizacao: ', err);
+        setOrigin({
+          latitude: -29.6914,
+          longitude: -53.8008,
+        });
       },
       {enableHighAccuracy: true, timeout: 5000, maximumAge: 1000},
     );
