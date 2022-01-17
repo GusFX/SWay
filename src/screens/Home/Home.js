@@ -123,20 +123,18 @@ const Home = () => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>
-          <MapView.Marker coordinate={origin}>
+          <MapView.Marker coordinate={origin} pinColor="#28db25">
             <MapView.Callout>
               <MarkerText>Origem</MarkerText>
             </MapView.Callout>
           </MapView.Marker>
           {occurrencesToRender.length > 0 &&
             occurrencesToRender.map((occ, index) => (
-              <MapView.Circle
-                key={index}
-                center={occ}
-                radius={150}
-                fillColor={Colors.LIGHT_RED}
-                strokeColor={Colors.RED}
-              />
+              <MapView.Marker key={index} coordinate={occ}>
+                <MapView.Callout>
+                  <MarkerText>Ocorrencia</MarkerText>
+                </MapView.Callout>
+              </MapView.Marker>
             ))}
         </MapView>
       </Container>
