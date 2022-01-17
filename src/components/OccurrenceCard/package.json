@@ -1,0 +1,6 @@
+{
+  "name": "occurrence-card",
+  "version": "1.0.0",
+  "main": "./OccurrenceCard.js",
+  "license": "MIT"
+}
