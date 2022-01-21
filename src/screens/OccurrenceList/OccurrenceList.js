@@ -6,18 +6,21 @@ import {OccurrenceCard} from '../../components';
 
 const OccurrenceList = () => {
   const [list, setList] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchList = useCallback(async () => {
     try {
+      setIsLoading(true);
       const {data: response} = await axios.get(
         'https://s-way.herokuapp.com/api/occurrences',
       );
-      console.log('resposta api: ', response);
       if (response.length) {
         setList(response);
       }
     } catch (error) {
       console.error('erro ao buscar lista de ocorrencias: ', error);
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
@@ -29,24 +32,28 @@ const OccurrenceList = () => {
     return date_hour.split(' ')[1];
   };
 
+  const getDefaultText = () =>
+    isLoading ? (
+      <Text>Buscando ocorrencias...</Text>
+    ) : (
+      <Text>Nenhuma ocorrencia registrada</Text>
+    );
   useEffect(() => fetchList(), [fetchList]);
 
   return (
     <>
       <ScreenView>
-        {list.length ? (
-          list.map((item, index) => (
-            <OccurrenceCard
-              key={index}
-              date={getDate(item.date_hour)}
-              time={getHour(item.date_hour)}
-              type={item.type}
-              details={item.description}
-            />
-          ))
-        ) : (
-          <Text>Nenhuma ocorrencia registrada</Text>
-        )}
+        {list.length
+          ? list.map((item, index) => (
+              <OccurrenceCard
+                key={index}
+                date={getDate(item.date_hour)}
+                time={getHour(item.date_hour)}
+                type={item.type}
+                details={item.description}
+              />
+            ))
+          : getDefaultText()}
       </ScreenView>
     </>
   );
