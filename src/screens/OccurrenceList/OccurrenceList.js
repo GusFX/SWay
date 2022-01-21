@@ -31,8 +31,6 @@ const OccurrenceList = () => {
 
   useEffect(() => fetchList(), [fetchList]);
 
-  useEffect(() => console.log(list), [list]);
-
   return (
     <>
       <ScreenView>
