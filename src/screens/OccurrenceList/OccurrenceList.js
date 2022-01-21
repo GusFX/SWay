@@ -7,6 +7,17 @@ import {OccurrenceCard} from '../../components';
 const OccurrenceList = () => {
   const [list, setList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const crimeTypes = {
+    theft: 'Roubo',
+    burglary: 'Arrombamento',
+    robbery: 'Assalto',
+    rape: 'Estupro',
+    harassment: 'Assédio',
+    strange_behaviour: 'Comportamento Estranho',
+    drug_trafficking: 'Tráfico de drogas',
+    faction_zone: 'Zona de facção',
+    other: 'Outro',
+  };
 
   const fetchList = useCallback(async () => {
     try {
@@ -32,6 +43,10 @@ const OccurrenceList = () => {
     return date_hour.split(' ')[1];
   };
 
+  const getType = type => {
+    return crimeTypes[type];
+  };
+
   const getDefaultText = () =>
     isLoading ? (
       <Text>Buscando ocorrencias...</Text>
@@ -49,7 +64,7 @@ const OccurrenceList = () => {
                 key={index}
                 date={getDate(item.date_hour)}
                 time={getHour(item.date_hour)}
-                type={item.type}
+                type={getType(item.type)}
                 details={item.description}
               />
             ))
