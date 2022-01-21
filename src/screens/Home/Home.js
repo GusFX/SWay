@@ -88,7 +88,7 @@ const Home = () => {
     const points = [];
     let randLat;
     let randLong;
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 30; i++) {
       randLat = Math.random() * (max.latitude - min.latitude) + min.latitude;
       randLong =
         Math.random() * (max.longitude - min.longitude) + min.longitude;
@@ -99,7 +99,7 @@ const Home = () => {
 
   const mountBoundingBox = useCallback(() => {
     if (!isLoading) {
-      const boundary = getBoundary(0.01);
+      const boundary = getBoundary(0.08);
       const points = generatePoints(boundary);
       setOccurrencesToRender(points);
     }
