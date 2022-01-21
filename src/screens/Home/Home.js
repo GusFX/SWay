@@ -2,7 +2,6 @@ import React, {useState, useCallback, useLayoutEffect, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/core';
 import {Button, InputView, ListView, OcurrenceView, MarkerText} from './styles';
 import {Container, MapView} from './styles';
-import {Colors} from '../../common/colors/Colors';
 
 import {PermissionsAndroid} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
@@ -138,14 +137,6 @@ const Home = () => {
             ))}
         </MapView>
       </Container>
-      <InputView>
-        <Button
-          text="Para onde vamos?"
-          backgroundColor="BLACK"
-          type="filled"
-          onPressCallback={() => {}}
-        />
-      </InputView>
       <OcurrenceView>
         <Button
           text="REGISTRAR OCORRENCIA"
