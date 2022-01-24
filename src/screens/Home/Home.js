@@ -19,6 +19,18 @@ const Home = () => {
   const [occurrencesToRender, setOccurrencesToRender] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const crimeTypes = [
+    'Roubo',
+    'Arrombamento',
+    'Assalto',
+    'Estupro',
+    'Assédio',
+    'Comportamento Estranho',
+    'Tráfico de drogas',
+    'Zona de facção',
+    'Outro',
+  ];
+
   const requestLocationPermission = useCallback(async () => {
     try {
       const granted = await PermissionsAndroid.request(
@@ -104,6 +116,11 @@ const Home = () => {
     }
   }, [isLoading, getBoundary, generatePoints]);
 
+  const getOccurrenceType = () => {
+    const index = Math.floor(Math.random() * 8);
+    return crimeTypes[index];
+  };
+
   useLayoutEffect(() => {
     requestLocationPermission();
   }, [requestLocationPermission]);
@@ -131,7 +148,7 @@ const Home = () => {
             occurrencesToRender.map((occ, index) => (
               <MapView.Marker key={index} coordinate={occ}>
                 <MapView.Callout>
-                  <MarkerText>Ocorrencia</MarkerText>
+                  <MarkerText>{getOccurrenceType()}</MarkerText>
                 </MapView.Callout>
               </MapView.Marker>
             ))}
