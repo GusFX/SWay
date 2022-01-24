@@ -14,7 +14,7 @@ import {
   TypeView,
 } from './styles';
 
-const OccurrenceCard = ({date, time, type, details}) => {
+const OccurrenceCard = ({date, time, type, details, place}) => {
   return (
     <CardView>
       <DateTimeView>
@@ -27,7 +27,9 @@ const OccurrenceCard = ({date, time, type, details}) => {
       </DateTimeView>
       <DescriptionView>
         <TypeView>
-          <TypeText>{type}</TypeText>
+          <TypeText>
+            {type} - {place}
+          </TypeText>
         </TypeView>
         <DetailsView>
           <DetailsText>{details}</DetailsText>

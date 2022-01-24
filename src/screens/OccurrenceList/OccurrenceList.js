@@ -66,6 +66,7 @@ const OccurrenceList = () => {
                 time={getHour(item.date_hour)}
                 type={getType(item.type)}
                 details={item.description}
+                place={item.street}
               />
             ))
           : getDefaultText()}
